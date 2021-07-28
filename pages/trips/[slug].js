@@ -46,19 +46,22 @@ export default function TripPage({trip}) {
     );
 }
 
+/*
 export async function getServerSideProps({query: {slug}}) {
-    const res = await fetch(`${API_URL}/api/trips/${slug}`)
+    const res = await fetch(`${API_URL}/trips?slug=${slug}`)
+
     const trips = await res.json()
 
     return {
         props: {
-            trip: trips[0]
+            evt: trips[0]
         }
     }
 }
+*/
 
 
-/*export async function getStaticPaths() {
+export async function getStaticPaths() {
     const res = await fetch(`${API_URL}/trips`)
     const trips = await res.json()
 
@@ -82,4 +85,4 @@ export async function getStaticProps({params: {slug}}) {
             revalidate: 1
         }
     }
-}*/
+}
